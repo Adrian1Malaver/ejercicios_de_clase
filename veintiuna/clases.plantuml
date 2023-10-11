@@ -1,0 +1,31 @@
+@startuml clases
+left to right direction
+abstract Carta 
+Mazo<|-- MazoFrances
+MazoFrances<|-- Interfaz
+Mazo<|-- MazoEspanol
+MazoEspanol<|-- Interfaz
+Mazo o-- Carta
+Juego -- Mazo
+
+Juego : iniciar_juego()
+Juego : mostrar_juego()
+Juego : valorar_juego()
+Juego : jugar()
+Juego : Mazo Mazo
+Juego : Mazo jugador1
+Juego : Mazo jugador2
+
+
+Carta : valor 
+Carta : Pinta 
+Carta : obtener_valor()
+Carta : mostrar_carta()
+Mazo : Carta[] cartas
+Mazo : mostrar_cartas()
+Mazo : obtener_valor_mazo()
+Mazo : entregar_carta()
+MazoFrances : crear_carta()
+MazoEspanol : crear_carta()
+Interfaz : mostrar_cartas()
+@enduml

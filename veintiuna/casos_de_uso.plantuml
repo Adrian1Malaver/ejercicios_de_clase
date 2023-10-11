@@ -1,0 +1,23 @@
+@startuml casos
+left to right direction
+actor usuario as g
+package juego21{
+	usecase "jugar" as UC1
+	usecase "iniciar juego" as UC2
+	usecase "obtener carta" as UC3
+	usecase "contar valor " as UC4
+	usecase "comparar valor" as UC5
+	usecase "mostrar resultados" as UC6
+	usecase "mostrar cartas, tkinter" as UC7
+
+
+}
+g -- UC1
+UC1<|-- UC2
+UC1<|-- UC3
+UC1<|-- UC4
+UC1<|-- UC5
+UC1<|-- UC6
+UC1<|-- UC7
+
+@enduml
