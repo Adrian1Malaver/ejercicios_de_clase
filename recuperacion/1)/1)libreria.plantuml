@@ -1,0 +1,60 @@
+@startuml libreria
+
+class Sede {
+  - nombre: String
+  - librosDisponibles: List<Libro>
+  + obtenerLibrosDisponibles(): List<Libro>
+}
+
+class Biblioteca {
+  - sedeActual: Sede
+  - estudiantes: List<Estudiante>
+  - docentes: List<Docente>
+  - administradores: List<Administrador>
+  + cambiarSede(sede: Sede): void
+}
+
+class Usuario {
+  - codigoCarnet: String
+}
+
+class Estudiante {
+  - nombre: String
+  + pedirLibro(libro: Libro): void
+  + devolverLibro(libro: Libro): void
+}
+
+class Docente {
+  - nombre: String
+  + verLibrosDisponibles(): List<Libro>
+}
+
+class Administrador {
+  + agregarLibro(libro: Libro): void
+  + eliminarLibro(libro: Libro): void
+}
+
+class Libro {
+  - titulo: String
+  - autor: String
+  - isbn: String
+  - genero: GeneroLibro
+  + obtenerTitulo(): String
+  + obtenerAutor(): String
+}
+
+class GeneroLibro {
+  - nombre: String
+  + obtenerNombre(): String
+}
+
+Biblioteca -- Sede: contiene
+Biblioteca *-right- "1..*" Usuario
+Biblioteca *-right- "1..*" Estudiante
+Biblioteca *-right- "1..*" Docente
+Biblioteca *-right- "1..*" Administrador
+Estudiante --|> Usuario
+Docente --|> Usuario
+Libro *- "1" GeneroLibro
+
+@enduml
